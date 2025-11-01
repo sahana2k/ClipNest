@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "ClipNest – Clip • Explain • Review",
+  "version": "0.1.0",
+  "description": "Clip any part of a page, get a concise explanation, and save it as a study card with interleaved, spaced review.",
+  "action": { "default_title": "Clip & Explain" },
+  "side_panel": { "default_path": "sidepanel/sidepanel.html" },
+  "background": { "service_worker": "background/sw.js", "type": "module" },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs",
+    "alarms",
+    "sidePanel",
+    "offscreen",
+    "unlimitedStorage"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  }
+}

@@ -1,0 +1,15 @@
+/* overlay for selection */
+#clipnest-overlay{
+  position:fixed;inset:0;z-index:2147483647;display:none;cursor:crosshair;
+  background:linear-gradient(180deg, rgba(2,6,23,0.18), rgba(2,6,23,0.12));
+}
+#clipnest-overlay .cn-help{
+  position:fixed;top:12px;left:12px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.06);backdrop-filter:blur(6px);color:#fff;font-size:13px;box-shadow:0 6px 18px rgba(2,6,23,0.25)
+}
+#clipnest-overlay #cn-rect{
+  position:fixed;border-radius:10px;box-shadow:0 10px 30px rgba(2,6,23,0.35), 0 0 0 2px rgba(255,255,255,0.06) inset;
+  background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));border:2px solid rgba(255,255,255,0.85)
+}
+
+/* small handles (visual) */
+#clipnest-overlay #cn-rect::after{content:'';position:absolute;right:-8px;bottom:-8px;width:14px;height:14px;border-radius:4px;background:var(--accent,rgba(255,255,255,0.9));transform:rotate(45deg);opacity:0.6}

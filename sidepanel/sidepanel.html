@@ -1,0 +1,104 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>ClipNest</title>
+<link rel="stylesheet" href="sidepanel.css" />
+<div id="app">
+  <div id="layout">
+  <aside id="sideNav">
+      <div class="brand">CN</div>
+      <button id="clipsNav" class="navBtn" title="Clips">Clips</button>
+      <button id="todayBtn" class="navBtn" title="Today">Today</button>
+      <button id="quizBtn" class="navBtn" title="Quiz">Quiz</button>
+  <button id="settingsNav" class="navBtn" title="Settings">Settings</button>
+      <div class="navFooter">
+        <button id="newClipBtn" class="navFloating">＋</button>
+      </div>
+    </aside>
+
+    <main id="mainContent">
+      <header>
+        <h1>ClipNest</h1>
+        <select id="subjectFilter"><option value="">All subjects</option></select>
+        <div style="margin-left:auto;display:flex;gap:8px;align-items:center;">
+          <label style="font-size:12px"><input id="useMockToggle" type="checkbox"/> Mock</label>
+          <label style="font-size:12px"><input id="themeToggle" type="checkbox"/> Dark</label>
+          <div class="menu">
+            <button id="menuBtn" aria-label="Menu">☰</button>
+            <div id="menuDropdown" class="menuDropdown hidden">
+              <div class="menuItem"><button id="menu-todayBtn">Today</button></div>
+                <div class="menuItem"><button id="menu-quizBtn">Quiz</button></div>
+                <div class="menuItem"><button id="menu-manageBtn">Manage</button></div>
+                <div class="menuItem"><button id="menuSettingsBtn">Settings</button></div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section id="explainView" class="card hidden">
+        <!-- default placeholder until a real clip is captured -->
+        <img id="cropPreview" src="../icons/128.png" alt="Clip preview"/>
+        <div id="notes"></div>
+        <div id="qa"></div>
+        <div class="actions">
+          <input id="subjectInput" placeholder="Subject (e.g., Biology)" />
+          <input id="topicInput" placeholder="Topic (e.g., Heart)" />
+          <button id="saveCardBtn" disabled>Save card</button>
+          <span id="genStatus" class="muted"></span>
+          <div class="error-wrap">
+            <button id="retryButton" class="hidden">Try again</button>
+          </div>
+          <a id="openSource" target="_blank" rel="noopener">Open source</a>
+        </div>
+      </section>
+
+      <section id="todayView">
+        <h2>Today’s review</h2>
+        <div id="dueList"></div>
+      </section>
+
+    <section id="quizView" class="hidden">
+        <h2>Quick mixed quiz</h2>
+        <div id="quizArea">
+          <div id="quizCard"></div>
+          <div id="quizQuestion"></div>
+      <div id="quizChoices" class="choices"></div>
+      <input id="quizAnswer" placeholder="Type your answer here" />
+          <div class="actions">
+            <button id="quizReveal">Reveal</button>
+            <button id="quizAgain">Again</button>
+            <button id="quizGood">Good</button>
+            <button id="quizQuit">Quit</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="manageView" class="hidden">
+        <h2>Clips</h2>
+        <input id="cardSearch" placeholder="Search cards (topic, tag, text)" />
+        <div id="manageList"></div>
+      </section>
+
+      <section id="settingsView" class="hidden">
+        <h2>Settings</h2>
+        <div class="settings-row">
+          <h3>Cloud sync</h3>
+          <label><input id="cloudEnable" type="checkbox"/> Enable cloud</label>
+          <input id="cloudUrl" placeholder="Cloud API base URL (https://...)" />
+          <input id="cloudToken" placeholder="API token (optional)" />
+          <div style="margin-top:8px"><button id="cloudSaveBtn">Save cloud settings</button> <button id="cloudMigrateBtn">Migrate local → cloud</button></div>
+        </div>
+        <div class="settings-row">
+          <h3>AI API</h3>
+          <label><input id="aiEnable" type="checkbox"/> Use remote AI API</label>
+          <input id="aiUrl" placeholder="AI API URL (https://...)" />
+          <input id="aiToken" placeholder="API token (optional)" />
+          <div style="margin-top:8px"><button id="aiSaveBtn">Save AI settings</button></div>
+        </div>
+        <div class="settings-row">
+          <button id="aiTestBtn">Test AI</button>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+<script type="module" src="sidepanel.js"></script>
